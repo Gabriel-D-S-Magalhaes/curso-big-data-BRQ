@@ -1,0 +1,24 @@
+chown <PROPRIETÁRIO>:<GRUPO> <ARQUIVO>
+
+Para aplicar a todos os arquivos de um diretório use a flag "-r"
+
+# chown -R (arquivo) <usuario>:<grupo-usuario> <nome-arquivo>
+# sudo --> permite executar um comando com usuario que possua super permissoes
+
+# chmod -> alterar permissoes de um arquivo ou pasta. 
+
+0 = Sem Permissão
+1 = Execução
+2 = Escrita
+4 = Leitura
+
+Ordem:
+-owner-group-guest
+
+Comando:
+chmod 660 <arquivo>
+
+Significa que:
+owner pode ler e escrever
+grupo pode ler e escrever
+convidado não tem nenhuma permissão
