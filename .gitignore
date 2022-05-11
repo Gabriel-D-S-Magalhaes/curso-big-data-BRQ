@@ -1,2 +1,7 @@
 # BRQ Ubuntu VM 
 GitHubToken.txt
+
+# Ignorando arquivos gerados quando um outro arquivo está sendo editado pelo "nano"
+*.swp
+
+volume/mysql/*
