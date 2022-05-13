@@ -34,4 +34,9 @@ Em nosso caso, estamos mapeando a pasta que contém tudo o que é necessário pa
 ## Criar Base de Dados
 `create database <name_db>;`
 
+## Usando Docker Compose
+docker-compose build
+docker-compose up
+docker-compose down
+
 

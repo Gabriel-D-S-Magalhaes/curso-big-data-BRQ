@@ -1,0 +1,20 @@
+version: "3"
+services:
+  db:
+    container_name: mydb
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  app:
+    container_name: myapp
+    depends_on:
+      - db
+    command: ["/wait-for-it/wait-for-it.sh", "db:3306", "--", "python", "miniproject.py"]
+    links:
+      - "db"
+    build: ./
+    ports:
+      - "5000:5000"
