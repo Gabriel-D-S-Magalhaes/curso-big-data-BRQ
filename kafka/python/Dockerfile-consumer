@@ -11,14 +11,15 @@ RUN pip install -r requirements.txt
 # Copiar o script python para dentro do container
 COPY ./consumer.py .
 
-
+CMD [ "consumer.py" ]
 
 # Executar via CMD os script python
-ENTRYPOINT [ "/bin/bash" ]
+#ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT [ "python" ]
 
 # docker build -t kafka_consumer --file Dockerfile-consumer .
 # docker run --rm -it --name kafka_consumer --network single-node_default kafka_consumer
-# Network single-noe_default:
+# Network single-node_default:
 # - MySQL
 # - Zookeper
 # - Kafka

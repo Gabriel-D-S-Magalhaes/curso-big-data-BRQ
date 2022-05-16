@@ -11,12 +11,15 @@ RUN pip install -r requirements.txt
 # Copiar o script python para dentro do container
 COPY ./producer.py .
 
+CMD [ "producer.py" ]
+
 # Executar via CMD os script python
-ENTRYPOINT [ "/bin/bash" ]
+#ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT [ "python" ]
 
 # docker build -t kafka_producer --file Dockerfile-producer .
 # docker run --rm -it --name kafka_producer --network single-node_default kafka_producer
-# Network single-noe_default:
+# Network single-node_default:
 # - MySQL
 # - Zookeper
 # - Kafka
