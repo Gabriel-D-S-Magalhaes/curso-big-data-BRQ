@@ -5,14 +5,14 @@ from json import loads
 
 try: 
     # O host poderia ser 'localhost'
-    db = mysql.connector.connect(host='172.19.0.5', user='root', password='root', port=3306, database='brq_python')
+    db = mysql.connector.connect(host='172.19.0.2', user='root', password='root', port=3306, database='brq_python')
     cursor = db.cursor()
 
     # Considerei que a tabela minha_media já está criada no banco brq_python
 
     consumer = KafkaConsumer(
         'meu-topico-legal',
-        bootstrap_servers=['172.19.0.3:9092'],
+        bootstrap_servers=['172.19.0.4:29092'],
         value_deserializer = lambda x: loads ( x.decode('utf-8') )
     )
 
