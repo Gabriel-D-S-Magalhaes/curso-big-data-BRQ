@@ -7,3 +7,4 @@ GitHubToken.txt
 volume/mysql/*
 
 *csv
+*.env
