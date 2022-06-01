@@ -35,3 +35,23 @@ select s.date_ as 'date',
 			s.date_ = '2020-06-12';
 ```
 
+## HBase
+`hbase shell`
+
+Criar coluna usando o 'date' como rowkey:
+`create 'portfolio','shares', 'symbol', 'close', 'total'`
+
+`scan portfolio`
+
+Importar CSV para o HDFS
+`hdfs dfs -put file.csv / tmp`
+
+Importar arquivo do HDFS para o HBase considerando o 'date' como rowkey:
+```shell
+hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.separator=',' -Dimporttsv.columns=HBASE_ROW_KEY,shares,symbol,close,total portfolio /tmp/portfolio.csv
+```
+### Comandos HBase úteis
+Disabilitar a tabela
+`disable 'portfolio'`
+Para "dropar" a tabela
+`drop 'portfolio'`
