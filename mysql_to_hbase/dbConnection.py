@@ -1,5 +1,6 @@
 import mysql.connector
 from mysql.connector import errorcode
+import pandas as pd
 
 HOST = '<host_here>'
 USER = '<user_here>'
@@ -22,8 +23,8 @@ try:
              "WHERE s.date_ = '2020-06-12';")
     cursor.execute(query)
 
-    for (date, shares, symbol, close, total) in cursor:
-        print(f"{date}\t|\t{shares}\t|\t{symbol}\t|\t{close}\t|\t{total}")
+    df = pd.DataFrame([row for row in cursor], columns=["date", "shares", "symbol", "close", "total"])
+    df.to_csv('shares.csv', index=False, sep='|')
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
         print("Something is wrong with your user name or password")
