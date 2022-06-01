@@ -12,6 +12,14 @@
 
 > ⚠ Ainda não tenho certeza como será feita a importação do CSV na VM Cloudera.
 
+## Acesso ao BD de preço de açoes
+
+Execute o seguinte comando para criar o arquivo **.env**:
+
+`cat .env.example > .env`
+
+Contate o proprietário do Banco de Dados para obter os acessos.
+
 ## SQL
 Criado por: Profº Fabrizio
 ```sql
@@ -26,3 +34,4 @@ select s.date_ as 'date',
 		WHERE 
 			s.date_ = '2020-06-12';
 ```
+

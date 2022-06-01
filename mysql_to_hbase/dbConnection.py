@@ -1,11 +1,14 @@
 import mysql.connector
 from mysql.connector import errorcode
 import pandas as pd
+from dotenv import dotenv_values
 
-HOST = '<host_here>'
-USER = '<user_here>'
-PASS = '<password_here>'
-DB = 'stockfgv'
+config = dotenv_values(".env") 
+
+HOST = config['HOST']
+USER = config['USER']
+PASS = config['PASS']
+DB = config['DB']
 
 try:
     cnx = mysql.connector.connect(
